@@ -5,7 +5,7 @@ import 'package:jogadores_football_app/src/models/api_models.dart';
 class PlayerApiProvider {
   String baseUrl = "https://www.easports.com/fifa/ultimate-team/api/fut/item?";
 
-  fetchPlayersByCountry (String countryId) async{
+  Future<List<Players>> fetchPlayersByCountry (String countryId) async{
     final response = await http.get("$baseUrl+counrtyId=$countryId");
 
     final responseString = jsonDecode(response.body);
