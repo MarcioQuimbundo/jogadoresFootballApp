@@ -1,4 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:jogadores_football_app/src/app.dart';
+import 'package:jogadores_football_app/src/services/repository.dart';
+import './src/ui/home.dart';
+void main() {
+  PlayerRepository _repository = PlayerRepository();
 
-void main() => runApp(App());
+  return runApp(App(playerRepository: _repository));
+}
+
+class App extends StatelessWidget {
+  final PlayerRepository playerRepository;
+
+  App({this.playerRepository});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: HomePage(),
+    );
+  }
+}
