@@ -9,13 +9,10 @@ class HomePage extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Container(
-          child: Center(
-            child: Text("Home"),
-          ),
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0.0,
+        title: Text('Jogadores de football'),
       ),
     );
   }
