@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jogadores_football_app/src/services/repository.dart';
-import './src/ui/home.dart';
+import './src/pages/home.dart';
 void main() {
   PlayerRepository _repository = PlayerRepository();
 
