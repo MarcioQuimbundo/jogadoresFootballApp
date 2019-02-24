@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jogadores_football_app/src/blocs/player_listing_bloc.dart';
+import 'package:jogadores_football_app/src/pages/player_listing.dart';
 import 'package:jogadores_football_app/src/services/repository.dart';
 import 'package:jogadores_football_app/src/themes/themes.dart';
 import 'package:jogadores_football_app/src/widgets/horizontal_bar.dart';
@@ -17,11 +19,13 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  //PlayerListingBloc _playerListingBloc:
+
+  PlayerListingBloc _playerListingBloc;
+
   @override
   void initState() { 
     super.initState();
-  //  _playerListingBloc =PlayerListingBloc(playerRepository: widget.playerRepository);
+    _playerListingBloc = PlayerListingBloc(playerRepository: widget.playerRepository);
   }
   @override
   void dispose() {
@@ -29,19 +33,22 @@ class HomePageState extends State<HomePage> {
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.white,
-        title: Text('Jogadores de football', style: appBarTextStyle,),
-        centerTitle: true,
-      ),
-      body: Column(
-        children: <Widget>[
-          HorizontalBar(),
-          SizedBox(height: 10.0),
-          //PlayerListing()
-        ],
+    return BlocProvider(
+        bloc: _playerListingBloc,
+          child: Scaffold(
+        appBar: AppBar(
+          elevation: 0.0,
+          backgroundColor: Colors.white,
+          title: Text('Jogadores de football', style: appBarTextStyle,),
+          centerTitle: true,
+        ),
+        body: Column(
+          children: <Widget>[
+            HorizontalBar(),
+            SizedBox(height: 10.0),
+            PlayerListing(),
+          ],
+        ),
       ),
     );
   }

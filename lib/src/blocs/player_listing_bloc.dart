@@ -7,7 +7,7 @@ import 'package:jogadores_football_app/src/services/repository.dart';
 class PlayerListingBloc extends Bloc<PlayerListingEvent, PlayerListingState> {
   final PlayerRepository playerRepository;
 
-  PlayerListingBloc({this.playerRepository}) : assert(playerRepository != null);
+  PlayerListingBloc({this.playerRepository}) : assert(playerRepository != null); 
   @override
   PlayerListingState get initialState => PlayerUnitialiZedState();
 
